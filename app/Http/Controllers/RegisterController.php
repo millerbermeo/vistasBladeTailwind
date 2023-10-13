@@ -71,13 +71,13 @@ class RegisterController extends Controller
    
 {
 
-    $request->validate([
-        'username' => 'required', 
-        'name' => 'required',
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
-
+    // $request->validate([
+    //     'username' => 'required', // Asegúrate de que 'username' sea requerido
+    //     'name' => 'required',
+    //     'email' => 'required|email',
+    //     'password' => 'required',
+    // ]);
+    
     $user = User::findOrFail($id);
 
     $user->update($request->all());

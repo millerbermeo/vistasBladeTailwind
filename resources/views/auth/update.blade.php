@@ -10,6 +10,7 @@ Actualizar Devstagram
             <img src="{{ asset('img/register.jpg') }}" alt="Imagen de registro" class="w-300">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
+            
         <form action="{{ route('update', ['id' => request()->route('id')]) }}" method="POST"> <!-- Usamos POST -->
             @csrf
   
@@ -18,7 +19,7 @@ Actualizar Devstagram
                 <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Nombre</label>
                 <input type="hidden" id="id" value="{{ request()->route('id') }}" name="id" placeholder="id" class="border p-3 w-full rounded-lg">
                     <?php echo request()->route('id')?>
-                <input type="text" id="name" name="name" placeholder="Nombre" class="border p-3 w-full rounded-lg">
+                <input type="text" id="name" name="name" value="" placeholder="Nombre" class="border p-3 w-full rounded-lg">
         
             </div>
             <div class="mb-5">
