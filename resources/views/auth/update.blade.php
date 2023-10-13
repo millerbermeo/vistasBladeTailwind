@@ -10,7 +10,7 @@ Actualizar Devstagram
             <img src="{{ asset('img/register.jpg') }}" alt="Imagen de registro" class="w-300">
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="" method="post">
+        <form action="{{ route('update', ['id' => request()->route('id')]) }}" method="POST"> <!-- Usamos POST -->
             @csrf
   
             @method('PUT')

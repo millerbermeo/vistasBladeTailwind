@@ -44,9 +44,9 @@ Pagina Welcome
                 Eliminar
             </button>
         </form>
-        <form action="{{ route('update', ['id' => $user->id]) }}" method="POST"> <!-- Utiliza POST en el formulario -->
+        <form action="{{ route('actualizar', ['id' => $user->id]) }}" method="POST"> <!-- Utiliza POST en el formulario -->
     @csrf
-    @method('PUT') <!-- Simula una solicitud PUT en una solicitud POST -->
+    @method('GET') <!-- Simula una solicitud PUT en una solicitud POST -->
     <!-- Otros campos del formulario aquí -->
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Actualizar</button>
 </form>

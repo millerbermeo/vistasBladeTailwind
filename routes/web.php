@@ -21,7 +21,12 @@ Route::get('/', [RegisterController::class, 'listar']);
 
 
 //Esta ruta me manda la vista de
-Route::put('/update/{id}', [RegisterController::class, 'actualizar'])->name('update');
+// Route::put('/update/{id}', [RegisterController::class, 'actualizar'])->name('update');
+
+
+Route::get('/update/{id}', [RegisterController::class, 'actualizar'])->name('actualizar');
+Route::put('/update/{id}', [RegisterController::class, 'update'])->name('update');
+
 
 Route::delete('/{id}', [RegisterController::class, 'destroy'])->name('destroy');
 

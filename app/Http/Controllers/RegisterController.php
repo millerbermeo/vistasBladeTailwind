@@ -67,7 +67,17 @@ class RegisterController extends Controller
     }
 
     public function update(Request $request, $id)
+
+   
 {
+
+    $request->validate([
+        'username' => 'required', 
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
     $user = User::findOrFail($id);
 
     $user->update($request->all());
