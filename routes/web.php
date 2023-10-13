@@ -19,6 +19,10 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', [RegisterController::class, 'listar']);
 
+
+//Esta ruta me manda la vista de
+Route::put('/update/{id}', [RegisterController::class, 'actualizar'])->name('update');
+
 Route::delete('/{id}', [RegisterController::class, 'destroy'])->name('destroy');
 
 

@@ -1,7 +1,7 @@
 @extends('layaouts.app')
 
 @section('titulo')
-Register Devstagram
+Actualizar Devstagram
 @endsection
 
 @section('contenido')
@@ -11,54 +11,39 @@ Register Devstagram
         </div>
         <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
             <form action="" method="post">
-                @csrf
+            @csrf
+  
+            @method('PUT')
             <div class="mb-5">
                 <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">Nombre</label>
+                <input type="hidden" id="id" value="{{ request()->route('id') }}" name="id" placeholder="id" class="border p-3 w-full rounded-lg">
+                    <?php echo request()->route('id')?>
                 <input type="text" id="name" name="name" placeholder="Nombre" class="border p-3 w-full rounded-lg">
-                @error('name')
-                <p class="bg-red-500 text-white my-2 rou-lg text-sm p-2 text-center"> 
-                    Error!. Must input your name
-                </p>
-                @enderror
+        
             </div>
             <div class="mb-5">
                 <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">UserName</label>
                 <input type="text" id="username" name="username" placeholder="UserName" class="border p-3 w-full rounded-lg">
-                @error('username')
-                <p class="bg-red-500 text-white my-2 rou-lg text-sm p-2 text-center"> 
-                    Error!. Must input your UserName
-                </p>
-                @enderror
+  
             </div>
             <div class="mb-5">
                 <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">Email</label>
                 <input type="text" id="email" name="email" placeholder="Email" class="border p-3 w-full rounded-lg">
-                @error('email')
-                <p class="bg-red-500 text-white my-2 rou-lg text-sm p-2 text-center"> 
-                    Error!. Must input your Email
-                </p>
-                @enderror
+           
             </div>
             <div class="mb-5">
                 <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password</label>
                 <input type="text" id="password" name="password" placeholder="Password" class="border p-3 w-full rounded-lg">
-                @error('password')
-                <p class="bg-red-500 text-white my-2 rou-lg text-sm p-2 text-center"> 
-                    Error!. Must input your Password
-                </p>
-                @enderror
+           
             </div>
             <div class="mb-5">
                 <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">Repetir Password</label>
                 <input type="password_confirmation" id="password_confirmation" name="password_confirmation" placeholder="Password confirmation" class="border p-3 w-full rounded-lg">
-                @error('passwordconfirmation')
-                <p class="bg-red-500 text-white my-2 rou-lg text-sm p-2 text-center"> 
-                    Error!. Must input your repeat Password
-                </p>
-                @enderror
+             
             </div>
 
-            <input type="submit" value="Crear Cuenta" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg">
+
+            <button class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg" type="submit">Actualizar</button>
         </form>
         </div>
     </div>

@@ -30,11 +30,10 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'passwordconfirmation' => 'required',
+            'name' => 'required|max:30',
+            'username' => 'required | unique:users',
+            'email' => 'required | unique:users|email|max:60',
+            'password' => 'required | confirmed|min:6',
         ]);
 
         $user = User::create([
@@ -42,7 +41,6 @@ class RegisterController extends Controller
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'passwordconfirmation' => bcrypt($request->passwordconfirmation)
         ]);
 
         return redirect('/');
@@ -56,18 +54,27 @@ class RegisterController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::find($id);
+        return response()->json($user);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        $user = User::findOrFail($id)->update($request->all());
 
-        return redirect('/');
+    public function actualizar()  {
+        return view('auth.update');
     }
+
+    public function update(Request $request, $id)
+{
+    $user = User::findOrFail($id);
+
+    $user->update($request->all());
+
+    return redirect('/');
+}
+
 
     /**
      * Remove the specified resource from storage.
